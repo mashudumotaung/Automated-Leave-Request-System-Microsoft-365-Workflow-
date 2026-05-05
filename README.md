@@ -1,62 +1,74 @@
-# Automated Leave Request System (Microsoft 365 Workflow)
+## SharePoint List Structure
 
-## 📌 Project Overview
-This project is an **Automated Leave Request System** built using **Microsoft Forms, Power Automate, SharePoint, and Outlook**.  
-It allows users to submit leave requests digitally, automatically stores the request in SharePoint, and sends an approval request to a manager. Once approved or rejected, the system updates the request status and notifies the requester via email.
+## List Name: Leave Requests
 
-This project demonstrates practical skills in **workflow automation**, **Microsoft 365 tools integration**, and **business process automation**.
+Column Name	Type
+Full Name	Text
+Email Address	Text
+Leave Category	Choice
+Start Date	Date
+End Date	Date
+Reason	Multiple lines of text
+Supporting Document	Attachment/File
+Status	Choice (Pending, Approved, Rejected)
+📝 Microsoft Form Fields
 
----
+Form Name: Leave Request Portal
 
-##  Features
-- Users submit leave requests using **Microsoft Forms**
-- Leave requests are automatically stored in a **SharePoint List**
-- A manager receives an **Approval Request Email**
-- Manager can **Approve or Reject** directly from email/Power Automate approval center
-- Requester receives an email confirmation (Approved/Rejected)
-- SharePoint record updates automatically with correct status:
-  - Pending
-  - Approved
-  - Rejected
+## Fields included:
 
----
+Full Name
+Institution Email Address
+Leave Category
+Leave Start Date
+Leave End Date
+Reason for Leave
 
-##  Tools & Technologies Used
-- **Microsoft Forms** (Leave Request Form)
-- **Power Automate** (Approval workflow automation)
-- **SharePoint Online** (Leave Requests database/list)
-- **Outlook / Microsoft 365 Email** (Notifications & approvals)
+## Create an automated cloud flow:
 
----
-
-##  System Workflow
-### Step-by-step process:
-1. User submits leave request using Microsoft Forms.
-2. Power Automate captures form responses.
-3. Data is stored in a SharePoint list with default status **Pending**.
-4. An approval request is sent to the manager.
-5. Manager approves or rejects the request.
-6. Power Automate updates SharePoint status.
-7. Requester receives feedback email with final decision.
-
----
-
-##  Flow Layout (Power Automate)
-```text
-When a new response is submitted (Microsoft Forms)
-        |
-Get response details (Microsoft Forms)
-        |
-Create item (SharePoint List)
-        |
-Start and wait for an approval (Approvals)
-        |
+Trigger: When a new response is submitted
+Action: Get response details
+Action: Create item (SharePoint)
+Action: Start and wait for an approval
 Condition: Outcome = Approve
-      /        \
-   YES          NO
-   |            |
-Send email      Send email
-(Approved)      (Rejected)
-   |            |
-Update item     Update item
-(Status=App)    (Status=Rej)
+YES branch: Send Approved email + Update SharePoint status
+NO branch: Send Rejected email + Update SharePoint status
+📧 Email Notifications
+
+## The system sends:
+
+Approval request email to the manager
+Approval confirmation email to the requester
+Rejection confirmation email to the requester  
+
+##  Project Outcome
+
+This project provides a real-world example of automating a manual HR/admin process into a fully digital workflow, improving:
+
+Efficiency
+Tracking
+Accountability
+Communication
+
+## Screenshots
+
+Microsoft Form Preview
+<img width="1600" height="759" alt="Form Interface" src="https://github.com/user-attachments/assets/a5d27e76-2ccb-4e91-82d2-77f35a94bd02" />
+
+SharePoint List
+<img width="1584" height="764" alt="Sharepoint List" src="https://github.com/user-attachments/assets/663738dc-dd18-4135-8220-810a74c09fca" />
+
+
+Power Automate Flow
+<img width="1596" height="712" alt="Power Automate Flow" src="https://github.com/user-attachments/assets/31bfaad6-26b9-46eb-9676-7d026aab9eb1" />
+
+Approval Email 
+<img width="1201" height="566" alt="Approval and Reject email" src="https://github.com/user-attachments/assets/f8b85a3b-18e9-4003-95b9-0aa954025ef0" />
+
+
+
+
+## Author
+
+Mashudu Motaung
+Aspiring Cloud Engineer | Microsoft 365 Automation | Cloud & Support Enthusiast
