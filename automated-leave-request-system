@@ -1,0 +1,62 @@
+# Automated Leave Request System (Microsoft 365 Workflow)
+
+## 📌 Project Overview
+This project is an **Automated Leave Request System** built using **Microsoft Forms, Power Automate, SharePoint, and Outlook**.  
+It allows users to submit leave requests digitally, automatically stores the request in SharePoint, and sends an approval request to a manager. Once approved or rejected, the system updates the request status and notifies the requester via email.
+
+This project demonstrates practical skills in **workflow automation**, **Microsoft 365 tools integration**, and **business process automation**.
+
+---
+
+## Features
+- Users submit leave requests using **Microsoft Forms**
+- Leave requests are automatically stored in a **SharePoint List**
+- A manager receives an **Approval Request Email**
+- Manager can **Approve or Reject** directly from email/Power Automate approval center
+- Requester receives an email confirmation (Approved/Rejected)
+- SharePoint record updates automatically with correct status:
+  - Pending
+  - Approved
+  - Rejected
+
+---
+
+## Tools & Technologies Used
+- **Microsoft Forms** (Leave Request Form)
+- **Power Automate** (Approval workflow automation)
+- **SharePoint Online** (Leave Requests database/list)
+- **Outlook / Microsoft 365 Email** (Notifications & approvals)
+
+---
+
+## System Workflow
+### Step-by-step process:
+1. User submits leave request using Microsoft Forms.
+2. Power Automate captures form responses.
+3. Data is stored in a SharePoint list with default status **Pending**.
+4. An approval request is sent to the manager.
+5. Manager approves or rejects the request.
+6. Power Automate updates SharePoint status.
+7. Requester receives feedback email with final decision.
+
+---
+
+## Flow Layout (Power Automate)
+```text
+When a new response is submitted (Microsoft Forms)
+        |
+Get response details (Microsoft Forms)
+        |
+Create item (SharePoint List)
+        |
+Start and wait for an approval (Approvals)
+        |
+Condition: Outcome = Approve
+      /        \
+   YES          NO
+   |            |
+Send email      Send email
+(Approved)      (Rejected)
+   |            |
+Update item     Update item
+(Status=App)    (Status=Rej)
