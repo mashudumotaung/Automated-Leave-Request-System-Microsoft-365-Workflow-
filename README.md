@@ -1,4 +1,7 @@
 ## Automated Leave Request System
+Request Leave Form 
+
+ 
 ## Overview
 
 This project is an automated Leave Request System built using Microsoft Power Platform tools. It digitises the traditional manual leave approval process by allowing employees to submit leave requests via Microsoft Forms, storing the data in SharePoint, and automating approval workflows through Power Automate with email notifications.
